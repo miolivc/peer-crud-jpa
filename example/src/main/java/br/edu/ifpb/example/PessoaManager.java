@@ -50,4 +50,11 @@ public class PessoaManager {
         return pessoa;
     }
     
+    public List<Pessoa> list() {
+        List<Pessoa> pessoas = null;
+        transaction.begin();
+        pessoas = manager.createQuery("SELECT * FROM PESSOA").getResultList();
+        transaction.commit();
+        return pessoas;
+    }
 }
